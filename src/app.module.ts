@@ -19,6 +19,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuxiliarProductoController } from './auxiliar-producto/auxiliar-producto.controller';
 import { AuxiliarProductoModule } from './auxiliar-producto/auxiliar-producto.module';
 import { AuxiliarProducto } from './auxiliar-producto/auxiliar-producto';
+import { Administrador } from './administrador/administrador';
+import { Categoria } from './categoria/categoria';
+import { Empleado } from './empleado/empleado';
+import { Estudiante } from './estudiante/estudiante';
+import { Orden } from './orden/orden';
+import { Producto } from './producto/producto';
+import { Ventas } from './ventas/ventas';
 
 @Module({
   imports: [
@@ -29,7 +36,16 @@ import { AuxiliarProducto } from './auxiliar-producto/auxiliar-producto';
       username: 'root',
       password: 'Ardi_192*',
       database: 'DB_cafeteria_app',
-      entities: [AuxiliarProducto],
+      entities: [
+        Administrador,
+        AuxiliarProducto,
+        Categoria,
+        Empleado,
+        Estudiante,
+        Orden,
+        Producto,
+        Ventas
+      ],
       synchronize: true,
     }),
     CategoriaModule, 

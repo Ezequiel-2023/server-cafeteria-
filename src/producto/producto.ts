@@ -1,9 +1,14 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+
 @Entity()
 
-export class AuxiliarProducto {
+export class Producto {
     @PrimaryGeneratedColumn('increment')
-    idAuxiliar: number;
+    idProducto: number;
     @Column({unique:true})
-    cantidad: number;
+    nombre: string;
+    @Column()
+    categoria: string ;
+    @Column()
+    precio: number ;
 }
