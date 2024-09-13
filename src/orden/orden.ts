@@ -5,11 +5,12 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 export class Orden {
     @PrimaryGeneratedColumn('increment')
     numeroOrden: number;
-    @Column({unique:true})
+    @Column()
     descripcion: string;
     @Column()
     total: number;
     @Column()
-    nombreColecta: string;
-    
+    nombreCLiente: string;
+    @Column()
+    hora: string; 
 }

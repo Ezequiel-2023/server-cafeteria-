@@ -5,6 +5,18 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 export class Administrador {
     @PrimaryGeneratedColumn('increment')
     idAdministrador: number;
-    @Column({unique:true})
+    @Column()
     nombre: string;
+    @Column()
+    apellido: string;
+    @Column()
+    email: string;
+    @Column()
+    telefono: number;
+    @Column()
+    direccion: string;
+    @Column()
+    codigoDeSeguridad: number;
+    @Column()
+    password: string;
 }

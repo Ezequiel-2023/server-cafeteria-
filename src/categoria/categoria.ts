@@ -4,7 +4,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 export class Categoria {
     @PrimaryGeneratedColumn('increment')
-    idCateoria: number;
-    @Column({unique:true})
+    idCategoria: number;
+    @Column()
     descripcionCateori: string;
 }

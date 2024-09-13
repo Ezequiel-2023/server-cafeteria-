@@ -5,4 +5,6 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 export class Ventas {
     @PrimaryGeneratedColumn('increment')
     idVentas: number;
+    fecha: Date;
+    descripcion: string;
 }

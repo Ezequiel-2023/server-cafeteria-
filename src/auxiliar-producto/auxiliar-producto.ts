@@ -4,6 +4,6 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 export class AuxiliarProducto {
     @PrimaryGeneratedColumn('increment')
     idAuxiliar: number;
-    @Column({unique:true})
-    cantidad: number;
+    @Column()
+    cantidad: number;   
 }

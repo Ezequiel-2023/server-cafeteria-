@@ -5,10 +5,16 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 export class Estudiante {
     @PrimaryGeneratedColumn('increment')
     carnet: number;
-    @Column({unique:true})
+    @Column()
     nombre: string;
     @Column()
     apellido: string;
     @Column()
     email: string;
+    @Column()
+    telefono: number;
+    @Column()
+    direccion: string;
+    @Column()
+    password: string;
 }
