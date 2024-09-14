@@ -9,6 +9,7 @@ import {AuxiliarProducto} from './auxiliar-producto'
         TypeOrmModule.forFeature([AuxiliarProducto])
     ],
     providers:[AuxiliarProductoService],
-    controllers: [AuxiliarProductoController]
+    controllers: [AuxiliarProductoController],
+    exports: [AuxiliarProductoService]
 })
 export class AuxiliarProductoModule {}

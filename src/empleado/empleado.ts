@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Administrador } from "src/administrador/administrador";
+import { Ventas } from "src/ventas/ventas";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 
@@ -19,4 +21,11 @@ export class Empleado {
     rol: string
     @Column()
     password: string;
+
+    @ManyToOne(() => Administrador, administrador => administrador.empleados)
+    administrador: Administrador;
+
+    @OneToMany(() => Ventas, venta => venta.empleado)
+    ventas: Ventas[];
 }
+

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Empleado } from "src/empleado/empleado";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 
@@ -19,4 +20,7 @@ export class Administrador {
     codigoDeSeguridad: number;
     @Column()
     password: string;
+    @OneToMany(() => Empleado, empleado => empleado.administrador)
+    empleados: Empleado[];
 }
+

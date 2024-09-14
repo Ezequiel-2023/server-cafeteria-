@@ -1,4 +1,6 @@
-import { Column, Decimal128, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { AuxiliarProducto } from "src/auxiliar-producto/auxiliar-producto";
+import { Categoria } from "src/categoria/categoria";
+import { Column, Decimal128, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Url } from "url";
 
 @Entity()
@@ -16,4 +18,10 @@ export class Producto {
     imagen: Url ;
     @Column()
     cantidad: number;
+
+    @ManyToOne(() => Categoria, categoria => categoria.productos)
+    categoria: Categoria;
+
+    @OneToMany(() => AuxiliarProducto, auxiliar => auxiliar.producto)
+    auxiliares: AuxiliarProducto[];
 }
