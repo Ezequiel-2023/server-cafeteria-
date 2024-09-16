@@ -16,13 +16,13 @@ export class Orden {
     @Column()
     hora: string; 
 
-    @ManyToOne(() => Estudiante, estudiante => estudiante.ordenes)
+    @ManyToOne(()=> Estudiante, (estudiante)=> estudiante.ordenes)
     estudiante: Estudiante;
 
-    @OneToMany(() => AuxiliarProducto, auxiliar => auxiliar.orden)
+    @OneToMany(()=> AuxiliarProducto, (auxiliar)=> auxiliar.orden)
     auxiliares: AuxiliarProducto[];
 
-    @OneToMany(() => Ventas, venta => venta.orden)
+    @OneToMany(()=> Ventas, (venta)=> venta.orden)
     ventas: Ventas[];
 }
 

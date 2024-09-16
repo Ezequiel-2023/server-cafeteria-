@@ -20,7 +20,7 @@ export class Administrador {
     codigoDeSeguridad: number;
     @Column()
     password: string;
-    @OneToMany(() => Empleado, empleado => empleado.administrador)
+    @OneToMany(()=> Empleado, (empleado)=> empleado.administrador)
     empleados: Empleado[];
 }
 

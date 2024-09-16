@@ -22,10 +22,10 @@ export class Empleado {
     @Column()
     password: string;
 
-    @ManyToOne(() => Administrador, administrador => administrador.empleados)
+    @ManyToOne(()=> Administrador, (administrador)=> administrador.empleados)
     administrador: Administrador;
 
-    @OneToMany(() => Ventas, venta => venta.empleado)
+    @OneToMany(()=> Ventas, (venta)=> venta.empleado)
     ventas: Ventas[];
 }
 

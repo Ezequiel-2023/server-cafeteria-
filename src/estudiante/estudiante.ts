@@ -18,6 +18,6 @@ export class Estudiante {
     direccion: string;
     @Column()
     password: string;
-    @OneToMany(() => Orden, orden => orden.estudiante)
+    @OneToMany(()=> Orden, (orden)=> orden.estudiante)
     ordenes: Orden[];
 }

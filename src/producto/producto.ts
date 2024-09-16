@@ -15,13 +15,13 @@ export class Producto {
     @Column()
     descripcion: string ;
     @Column()
-    imagen: Url ;
+    imagen: string ;
     @Column()
     cantidad: number;
 
-    @ManyToOne(() => Categoria, categoria => categoria.productos)
+    @ManyToOne(()=> Categoria, (categoria)=> categoria.productos)
     categoria: Categoria;
 
-    @OneToMany(() => AuxiliarProducto, auxiliar => auxiliar.producto)
+    @OneToMany(()=> AuxiliarProducto, (auxiliar)=> auxiliar.producto)
     auxiliares: AuxiliarProducto[];
 }

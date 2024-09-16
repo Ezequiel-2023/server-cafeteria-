@@ -9,9 +9,9 @@ export class Ventas {
     idVentas: number;
     fecha: Date;
     descripcion: string;
-    @ManyToOne(() => Empleado, empleado => empleado.ventas)
+    @ManyToOne(()=> Empleado, (empleado)=> empleado.ventas)
     empleado: Empleado;
-    @ManyToOne(() => Orden, orden => orden.ventas)
+    @ManyToOne(()=> Orden, (orden)=> orden.ventas)
     orden: Orden;
    
 }
