@@ -25,10 +25,10 @@ Este proyecto es una aplicación de cafetería que permite a los clientes realiz
 
 ### Tecnologías utilizadas
 
-- Node.js
-- NestJS
-- MySQL
-- TypeORM
+# - Node.js
+# - NestJS
+# - MySQL
+# - TypeORM
 
 ### Instalación
 
@@ -38,27 +38,24 @@ Este proyecto es una aplicación de cafetería que permite a los clientes realiz
 
 ### Configura la conexión a tu base de datos en el archivo correspondiente:
 
-TypeOrmModule.forRoot({
-  type: 'mysql',
-  host: 'localhost',
-  port: 3306,
-  username: 'tu_usuario',
-  password: 'tu_contraseña',
-  database: 'db_cafeteria_app',
-  entities: [ /* Aquí van tus entidades */ ],
-  synchronize: true,  // Ten en cuenta que esto solo se usa en desarrollo
-});
+# TypeOrmModule.forRoot({
+#  type: 'mysql',
+#  host: 'localhost',
+#  port: 3306,
+#  username: 'tu_usuario',
+#  password: 'tu_contraseña',
+#  database: 'db_cafeteria_app',
+#  entities: [ /* Aquí van tus entidades */ ],
+#  synchronize: true,  // Ten en cuenta que esto solo se usa en desarrollo
+# });
 ### Iniciar el servidor
 ### Para iniciar el servidor, usa el siguiente comando:
 
-npm run start
+# npm run start
 
 ### Endpoints disponibles
-GET: Obtener datos de la aplicación.
-POST: Agregar nuevos datos.
-PUT: Actualizar datos existentes.
-DELETE: Eliminar datos.
+# GET: Obtener datos de la aplicación.
+# POST: Agregar nuevos datos.
+# PUT: Actualizar datos existentes.
+# DELETE: Eliminar datos.
 
-### Contribuciones
-### Si deseas contribuir a este proyecto, por favor sigue las normas de colaboración y 
-### asegúrate de enviar un pull request detallado con tus cambios.

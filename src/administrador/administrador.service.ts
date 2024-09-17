@@ -28,6 +28,19 @@ export class AdministradorService {
         return await this.userRepository.save(newItem);
     }
 
+    async update(idAdministrador:number, item: Partial<Administrador>): Promise<Administrador>{
+        if (item.password) {
+            const hashedPassword= await this.encryptService.hashPassword(item.password);
+            item.password = hashedPassword
+        }
+        await this.userRepository.update(idAdministrador, item);
+        return this.userRepository.findOneBy({idAdministrador});
+    }
+
+    async delete(idAdministrador:number):Promise<void>{
+        await this.userRepository.findOneBy({idAdministrador})
+    }
+
     async findByUsername(nombre: string): Promise<Administrador | undefined> {
         return this.userRepository.findOne({where: {nombre}});
     }
