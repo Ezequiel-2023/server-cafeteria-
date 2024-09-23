@@ -8,6 +8,7 @@ export class AuxiliarProducto {
     idAuxiliar: number;
     @Column()
     cantidad: number; 
+    
     @ManyToOne(()=> Orden, (orden)=> orden.auxiliares)
     orden: Orden;
 

@@ -8,6 +8,8 @@ export class Categoria {
     idCategoria: number;
     @Column()
     descripcionCateori: string;
+    @Column()
+    imagenCategoria: string;
     @OneToMany(()=> Producto, (producto)=> producto.categoria)
     productos: Producto[];
 }

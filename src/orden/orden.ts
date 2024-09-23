@@ -1,7 +1,7 @@
 import { AuxiliarProducto } from "src/auxiliar-producto/auxiliar-producto";
-import { Estudiante } from "src/estudiante/estudiante";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Ventas } from "src/ventas/ventas";
+import { User } from 'src/user/user';
 @Entity()
 
 export class Orden {
@@ -16,13 +16,13 @@ export class Orden {
     @Column()
     hora: string; 
 
-    @ManyToOne(()=> Estudiante, (estudiante)=> estudiante.ordenes)
-    estudiante: Estudiante;
-
     @OneToMany(()=> AuxiliarProducto, (auxiliar)=> auxiliar.orden)
     auxiliares: AuxiliarProducto[];
 
     @OneToMany(()=> Ventas, (venta)=> venta.orden)
     ventas: Ventas[];
+
+    @ManyToOne(() => User, (user) => user.ordenes)
+  user: User; // El estudiante que realiza la orden
 }
 

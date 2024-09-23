@@ -1,7 +1,6 @@
 import { AuxiliarProducto } from "src/auxiliar-producto/auxiliar-producto";
 import { Categoria } from "src/categoria/categoria";
-import { Column, Decimal128, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Url } from "url";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 
@@ -15,7 +14,7 @@ export class Producto {
     @Column()
     descripcion: string ;
     @Column()
-    imagen: string ;
+    imagenProducto: string ;
     @Column()
     cantidad: number;
 
