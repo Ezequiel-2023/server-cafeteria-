@@ -6,6 +6,7 @@ import { EncryptService } from 'src/encrypt/encrypt.service';
 
 @Injectable()
 export class UserService {
+    private readonly user = []
     constructor(
         @InjectRepository(User)
         private userRepository: Repository<User>,

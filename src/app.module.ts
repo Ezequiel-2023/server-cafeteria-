@@ -15,6 +15,7 @@ import { Ventas } from './ventas/ventas';
 import { EncryptModule } from './encrypt/encrypt.module';
 import { User } from './user/user';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { UserModule } from './user/user.module';
     AuxiliarProductoModule,
     EncryptModule,
     UserModule,
+    AuthModule,
     
   ],
   controllers: [
