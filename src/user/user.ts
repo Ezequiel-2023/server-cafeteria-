@@ -1,3 +1,4 @@
+// entyti User 
 import { Entity ,Column, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Orden } from 'src/orden/orden';
 import { Ventas } from 'src/ventas/ventas';

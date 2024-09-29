@@ -35,6 +35,16 @@ export class UserService {
     async findByUsername(nombre: string): Promise<User | undefined> {
         return this.userRepository.findOne({ where: { nombre } });
     }
+    //buscar tanto por correo como por un ID o username para empleados y administradores.
+    async findByUsernameOrEmail(identifier: any): Promise<User> {
+    return await this.userRepository.findOne({
+      where: [
+        { email: identifier },
+        { idUser: identifier },  
+            ],
+        });
+    }
+  
 
     // Actualizar un usuario
     async update(idUser: number, updateUserDto: Partial<User>): Promise<User> {

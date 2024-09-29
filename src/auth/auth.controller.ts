@@ -1,6 +1,4 @@
 
-
-
 import { Body,  Request,    Controller, Post, HttpCode, HttpStatus, UseGuards, Get } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
@@ -19,4 +17,5 @@ export class AuthController {
   getProfile(@Request() req) {
     return req.user;
   }
+  
 }
