@@ -34,7 +34,7 @@ async update(idOrden: number, updateOrdenDto: Partial<Orden>): Promise<Orden> {
 }
 
 
-async remove(idOrden: number): Promise<void> {
+async delete(idOrden: number): Promise<void> {
     await this.ordenRepository.delete(idOrden);
 }
 }

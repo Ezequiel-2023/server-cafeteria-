@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Delete } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Producto } from './producto';
@@ -34,7 +34,7 @@ export class ProductoService {
     }
 
  
-    async remove(idProducto: number): Promise<void> {
+    async delete(idProducto: number): Promise<void> {
         await this.productoRepository.delete(idProducto);
     }
 }

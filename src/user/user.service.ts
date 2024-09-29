@@ -43,7 +43,7 @@ export class UserService {
     }
 
     // Eliminar un usuario
-    async remove(idUser: number): Promise<void> {
+    async delete(idUser: number): Promise<void> {
         await this.userRepository.delete(idUser);
     }
 }

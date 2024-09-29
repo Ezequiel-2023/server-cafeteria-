@@ -35,7 +35,7 @@ export class CategoriaService {
     }
 
  
-    async remove(idCategoria: number): Promise<void> {
+    async delete(idCategoria: number): Promise<void> {
         await this.categoriaRepository.delete(idCategoria);
     }
 }

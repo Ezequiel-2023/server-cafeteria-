@@ -36,7 +36,7 @@ export class VentasService {
     }
 
  
-    async remove(idVentas: number): Promise<void> {
+    async delete(idVentas: number): Promise<void> {
         await this.VentasRepository.delete(idVentas);
     }
 }
