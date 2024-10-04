@@ -1,5 +1,5 @@
 
-
+// aut guard
 import { CanActivate,ExecutionContext,Injectable, UnauthorizedException,} from '@nestjs/common';
   import { JwtService } from '@nestjs/jwt';
   import { jwtConstants } from './constantes';

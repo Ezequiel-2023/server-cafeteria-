@@ -16,6 +16,9 @@ import { EncryptModule } from './encrypt/encrypt.module';
 import { User } from './user/user';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { Rol } from './rol/rol';
+import { RoleModule } from './rol/rol.module';
+
 
 @Module({
   imports: [
@@ -33,6 +36,7 @@ import { AuthModule } from './auth/auth.module';
         Orden,
         Producto,
         Ventas,
+        Rol
       ],
       synchronize: true,
     }),
@@ -44,6 +48,8 @@ import { AuthModule } from './auth/auth.module';
     EncryptModule,
     UserModule,
     AuthModule,
+    RoleModule
+  
     
   ],
   controllers: [

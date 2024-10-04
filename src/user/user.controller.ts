@@ -20,13 +20,15 @@ export class UserController {
      }
 
      @Post()
-     @Roles(Role.Administrador)  // Solo administradores pueden crear empleados
-     async create(@Body() UserData: Partial<User>): Promise<User> {
-     if (UserData.rol === Role.Estudiante && !UserData.email.endsWith('@galileo.edu')) {
-     throw new UnauthorizedException('Los estudiantes deben usar un correo de @galileo.edu');
+     async create(@Body() userData: Partial<User>): Promise<User> {
+       const rol = await this.userService.findRolById(userData.rol.idRol); // Obtener el rol
+       if (rol.nombre === Role.Estudiante && !userData.email.endsWith('@galileo.edu')) {
+         throw new UnauthorizedException('Los estudiantes deben usar un correo de @galileo.edu');
+       } else if ((rol.nombre === Role.Empleado || rol.nombre === Role.Administrador) && !userData.email.endsWith('@gmail.com')) {
+         throw new UnauthorizedException('Empleados y Administradores deben usar un correo de @gmail.com');
+       }
+       return this.userService.create(userData);
      }
-     return this.userService.create(UserData);
-    }
 
    
      @Put(':id')

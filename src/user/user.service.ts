@@ -1,8 +1,10 @@
+// user sevicio
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user';
 import { Repository } from 'typeorm';
 import { EncryptService } from 'src/encrypt/encrypt.service';
+import { Rol } from 'src/rol/rol';
 
 @Injectable()
 export class UserService {
@@ -11,7 +13,15 @@ export class UserService {
         @InjectRepository(User)
         private userRepository: Repository<User>,
         private readonly encryptService: EncryptService,
+        // Cambiar la inyección a Repository<Rol>
+        @InjectRepository(Rol)
+        private readonly rolRepository: Repository<Rol>,
     ) {}
+    // interactuar con el rol
+    async findRolById(id: number): Promise<Rol> {
+        return this.rolRepository.findOne({ where: { idRol: id } });
+    }
+
 
     // Listar todos los usuarios
     findAll(): Promise<User[]> {
