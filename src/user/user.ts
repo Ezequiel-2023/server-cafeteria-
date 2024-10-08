@@ -20,7 +20,7 @@ export class User {
 
     @ManyToOne(() => Rol, rol => rol.users)
     @JoinColumn({ name: 'rol_id' })
-rol: Rol;
+     rol: Rol;
 
   @OneToMany(() => Orden, (orden) => orden.user)
   ordenes: Orden[];
