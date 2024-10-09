@@ -8,6 +8,6 @@ async function bootstrap() {
     origin: 'http://localhost:3000', // Dirección del frontend
     credentials: true,
   });
-  await app.listen(4000);
+  await app.listen(4000); // Direccion backend
 }
 bootstrap();

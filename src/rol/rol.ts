@@ -1,3 +1,4 @@
+// entity rol
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { User } from '../user/user';
 

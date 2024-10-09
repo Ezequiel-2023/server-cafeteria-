@@ -14,25 +14,29 @@ export class AuthService {
   ) {}
 
   async signIn(username: string, pass: string): Promise<any> {
-    // Buscar al usuario por email o username (ID)
+    //console.log('Iniciando sesión para:', username);
     const user = await this.usersService.findByUsernameOrEmail(username);
 
-    // Validar la contraseña
+    if (!user) {
+        throw new UnauthorizedException('Usuario no encontrado');
+    }
+
     const isPasswordValid = await this.encryptService.comparePassword(pass, user.password);
     if (!isPasswordValid) {
-      throw new UnauthorizedException('Credenciales inválidas');
+        throw new UnauthorizedException('Credenciales inválidas');
     }
 
-    // Validar si el usuario es estudiante y si tiene un correo válido de @galileo.edu
     if (user.rol.nombre === Role.Estudiante && !user.email.endsWith('@galileo.edu')) {
-      throw new UnauthorizedException('Los estudiantes deben iniciar sesión con un correo @galileo.edu');
+        throw new UnauthorizedException('Los estudiantes deben iniciar sesión con un correo @galileo.edu');
     }
 
-    // Crear el payload para el JWT
-    const payload = { sub: user.idUser, nombre: user.nombre, rol: user.rol.nombre };  // Acceder al nombre del rol
+    const payload = { sub: user.idUser, nombre: user.nombre, rol: user.rol.nombre };
 
+    //console.log('Payload creado:', payload);
     return {
-      access_token: await this.jwtService.signAsync(payload),
+        access_token: await this.jwtService.signAsync(payload),
     };
-  }
 }
+
+}
+
