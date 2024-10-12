@@ -16,6 +16,11 @@ export class ProductoController {
         return this.productoService.findOne(id);
     }
 
+    @Get('categoria/:idCategoria')
+    async findByCategoria(@Param('idCategoria') idCategoria: number): Promise<Producto[]> {
+        return this.productoService.findByCategoria(idCategoria);
+    }
+
     @Post()
     async create(@Body() ProductoData: Partial<Producto>): Promise<Producto> {
         return this.productoService.create(ProductoData);

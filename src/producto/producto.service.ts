@@ -1,4 +1,4 @@
-import { Injectable, Delete } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Producto } from './producto';
@@ -18,6 +18,13 @@ export class ProductoService {
         return this.productoRepository.findOneBy({idProducto:id});
     }
 
+    async findByCategoria(idCategoria: number): Promise<Producto[]> {
+        return this.productoRepository.find({
+            where: { categoria: { idCategoria } }, // Filtra por la entidad Categoria
+            relations: ['categoria'], // Carga la relación de categoria si es necesario
+        });
+    }
+
     async create(item: Partial<Producto>):Promise<Producto>{
         const newItem = this.productoRepository.create(item);
         return await this.productoRepository.save(newItem);
@@ -32,7 +39,6 @@ export class ProductoService {
         await this.productoRepository.update(idProducto, updateProductoDto);
         return this.findOne(idProducto); // Retorna el usuario actualizado
     }
-
  
     async delete(idProducto: number): Promise<void> {
         await this.productoRepository.delete(idProducto);
