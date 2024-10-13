@@ -7,7 +7,7 @@ export class Categoria {
     @PrimaryGeneratedColumn('increment')
     idCategoria: number;
     @Column()
-    descripcionCateori: string;
+    descripcion: string;
     @Column()
     imagenCategoria: string;
     @OneToMany(()=> Producto, (producto)=> producto.categoria)
