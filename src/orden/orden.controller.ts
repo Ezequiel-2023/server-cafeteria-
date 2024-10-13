@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
 import { Orden } from './orden';
 import { OrdenService } from './orden.service';
+import { CreateOrdenDto } from './create-orden.dto'
 @Controller('orden')
 export class OrdenController {
     constructor(private readonly OrdenService: OrdenService) {}
@@ -16,8 +17,8 @@ export class OrdenController {
      }
 
      @Post()
-     async create(@Body() OrdenData: Partial<Orden>): Promise<Orden> {
-       return this.OrdenService.create(OrdenData);
+     async create(@Body() createOrdenDto: CreateOrdenDto): Promise<Orden> {
+     return this.OrdenService.create(createOrdenDto);
      }
    
      @Put(':id')

@@ -15,6 +15,8 @@ export class Orden {
     nombreCLiente: string;
     @Column()
     hora: string; 
+    @Column()
+    fecha: string; 
 
     @OneToMany(()=> AuxiliarProducto, (auxiliar)=> auxiliar.orden)
     auxiliares: AuxiliarProducto[];
@@ -23,6 +25,6 @@ export class Orden {
     ventas: Ventas[];
 
     @ManyToOne(() => User, (user) => user.ordenes)
-  user: User; // El estudiante que realiza la orden
+    user: User; // El estudiante que realiza la orden
 }
 

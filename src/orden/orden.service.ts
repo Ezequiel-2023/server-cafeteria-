@@ -1,13 +1,15 @@
-
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Orden } from './orden';
-
+import { User } from 'src/user/user';
+import { CreateOrdenDto } from './create-orden.dto'
 @Injectable()
 export class OrdenService {constructor(
     @InjectRepository(Orden)
-    private ordenRepository: Repository<Orden>
+    private ordenRepository: Repository<Orden>,
+    @InjectRepository(User)
+    private userRepository: Repository<User>
 ){
 
 }
@@ -19,10 +21,23 @@ findOne(id: number): Promise<Orden>{
     return this.ordenRepository.findOneBy({numeroOrden:id});
 }
 
-async create(item: Partial<Orden>):Promise<Orden>{
-    const newItem = this.ordenRepository.create(item);
-    return await this.ordenRepository.save(newItem);
+// Crear una nueva orden
+async create(createOrdenDto: CreateOrdenDto): Promise<Orden> {
+    const { userIdUser, ...rest } = createOrdenDto;
+    const user = await this.userRepository.findOne({ where: { idUser: userIdUser } });
+
+    if (!user) {
+      throw new Error('Usuario no encontrado');
+    }
+
+    const newOrden = this.ordenRepository.create({
+      ...rest,
+      user,
+    });
+
+    return await this.ordenRepository.save(newOrden);
 }
+  
 
 async findByOrdenname(numeroOrden: number): Promise<Orden | undefined> {
     return this.ordenRepository.findOne({ where: { numeroOrden } });

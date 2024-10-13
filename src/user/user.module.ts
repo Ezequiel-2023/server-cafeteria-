@@ -16,6 +16,6 @@ import { RoleModule } from 'src/rol/rol.module';
   ],
   providers: [UserService, EncryptService],
   controllers: [UserController],
-  exports:[UserService, EncryptService],
+  exports:[UserService, EncryptService,TypeOrmModule],
 })
 export class UserModule {}
